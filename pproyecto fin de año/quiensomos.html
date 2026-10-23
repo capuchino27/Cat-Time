@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quién Somos - Plataforma - Cat Time</title>
+    <link rel="stylesheet" href="inicio.css">
+</head>
+<body>
+    <header>
+        <nav class="pagina">
+            <div class="marca">CAT TIME<span>.</span></div>
+            <ul class="menu-lineal">
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="quiensomos.html" class="active">Quién Somos</a></li>
+                <li><a href="evidencias.html">Evidencias</a></li>
+                <li><a href="st.html">ST</a></li>
+                <li><a href="contacto.html">Contacto</a></li>
+            </ul>
+            <div class="logo-derecha">
+                <img src="Sin título-1.png" alt="Logotipo de la empresa" width="200" height="100" loading="lazy">
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        
+        <div class="decoracion-fondo">
+            <div class="circulo-brillo brillo-1"></div>
+            <div class="circulo-brillo brillo-2"></div>
+        </div>
+
+        <div class="contenedor-pagina">
+            
+            <div class="columna-texto">
+                <span class="badge-tag"> Manejo del Tiempo</span>
+                <h1>¿Por qué es <span>Importante</span>?</h1>
+                <p>Es una habilidad esencial para cualquier estudiante que desee alcanzar un buen rendimiento.</p>
+
+               
+
+                
+                <div class="botones-imagenes-vertical">
+                    <button type="button" onclick="mostrarImagen(1)">Misión</button>
+                    <button type="button" onclick="mostrarImagen(2)">Visión</button>
+                    <button type="button" onclick="mostrarImagen(3)">Pregunta Problema</button>
+                    <button type="button" onclick="mostrarImagen(4)">Objetivos generales</button>
+                    <button type="button" onclick="mostrarImagen(5)">Objetivos Específicos</button>
+                    <button type="button" onclick="mostrarImagen(6)">Cronograma</button>
+                </div>
+            </div>
+
+            
+            <div class="columna-imagen">
+                
+                <div class="tarjeta-flotante tf-1">
+                    <span class="icono">📌</span>
+                    <div>
+                        <strong>Información</strong>
+                        <p>Proyecto Escolar</p>
+                    </div>
+                </div>
+
+                <div class="tarjeta-flotante tf-2">
+                    <span class="icono">🎯</span>
+                    <div>
+                        <strong>Metas</strong>
+                        <p>Cat Time</p>
+                    </div>
+                </div>
+
+              
+                <img src="AM.png" alt="Modelo 3D del gato" class="img-gato" loading="lazy">
+
+               
+                <div id="contenedor" class="visor-imagenes">
+                    <img id="img1" src="mision.jpeg" alt="Misión" style="display:none;">
+                    <img id="img2" src="vision.jpeg" alt="Visión" style="display:none;">
+                    <img id="img3" src="pregunta.jpeg" alt="Pregunta Problema" style="display:none;">
+                    <img id="img4" src="objetivo.jpeg" alt="Objetivos generales" style="display:none;">
+                    <img id="img5" src="general.jpeg" alt="Objetivos Específicos" style="display:none;">
+                    <img id="img6" src="jirafa.jpg" alt="Cronograma" style="display:none;">
+                </div>
+            </div>
+        </div>
+    </main>
+
+    
+    <div id="cuadroTexto" class="modal">
+        <div class="modal-contenido">
+            <span class="cerrar">&times;</span>
+            <h2 id="modalTitulo">Mensaje</h2>
+            <p id="modalMensaje">Aquí va el texto.</p>
+        </div>
+    </div>
+
+   
+    <script>
+        
+        function mostrarImagen(num) {
+            for (let i = 1; i <= 6; i++) {
+                const img = document.getElementById("img" + i);
+                if (img) img.style.display = "none";
+            }
+            const imagenActiva = document.getElementById("img" + num);
+            if (imagenActiva) {
+                imagenActiva.style.display = "block";
+            }
+        }
+
+        
+        const modal = document.getElementById("cuadroTexto");
+        const btnEmpezar = document.getElementById("btnEmpezar");
+        const btnSaberMas = document.getElementById("btnSaberMas");
+        const btnCerrar = document.querySelector(".cerrar");
+        const titulo = document.getElementById("modalTitulo");
+        const mensaje = document.getElementById("modalMensaje");
+
+        function abrirModal(nuevoTitulo, nuevoMensaje) {
+            titulo.textContent = nuevoTitulo;
+            mensaje.textContent = nuevoMensaje;
+            modal.style.display = "flex";
+        }
+
+        if (btnEmpezar) {
+            btnEmpezar.addEventListener("click", function(evento) {
+                evento.preventDefault();
+                abrirModal("¡Inicia tu gestión!", "Comienza a organizar tus tareas y a mejorar tu rendimiento académico ahora mismo.");
+            });
+        }
+
+        if (btnSaberMas) {
+            btnSaberMas.addEventListener("click", function(evento) {
+                evento.preventDefault();
+                abrirModal("Sobre el proyecto", "Interactúa con nuestro modelo 3D para llevar un control visual y eficiente de tu tiempo de estudio.");
+            });
+        }
+
+        if (btnCerrar) {
+            btnCerrar.addEventListener("click", function() {
+                modal.style.display = "none";
+            });
+        }
+
+        window.addEventListener("click", function(evento) {
+            if (evento.target === modal) {
+                modal.style.display = "none";
+            }
+        });
+    </script>
+</body>
+</html>
